@@ -6,24 +6,26 @@ import { useFetch } from './2-useFetch'
 const url = 'https://course-api.com/javascript-store-products'
 
 const Example = () => {
-  const [loading, setLoading] = useState(true)
-  const [products, setProducts] = useState([])
-
-  const getProducts = async () => {
-    const response = await fetch(url)
-    const products = await response.json()
-    setProducts(products)
-    setLoading(false)
-  }
-
-  useEffect(() => {
-    getProducts()
-  }, [url])
-  console.log(products)
+  const { loading, products } = useFetch(url)
   return (
     <div>
-      <h2>{loading ? 'loading...' : 'data'}</h2>
+      <h2>{loading ? 'loading...' : <Product products={products} />}</h2>
     </div>
+  )
+}
+
+const Product = ({ products }) => {
+  return (
+    <>
+      {products.map((pr) => {
+        return (
+          <div className='item' key={pr.id}>
+            <h3>{pr.fields.name}</h3>
+            <h3>{pr.fields.price}</h3>
+          </div>
+        )
+      })}
+    </>
   )
 }
 

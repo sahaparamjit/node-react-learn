@@ -1,11 +1,9 @@
 import React from 'react'
-import Setup from './tutorial/2-useEffect/setup/1-useEffect-basics'
-import Final from './tutorial/2-useEffect/final/1-useEffect-basics'
+import Setup from './tutorial/9-custom-hooks/setup/1-fetch-example'
 function App() {
   return (
     <div className='container'>
       <Setup />
-      <Final />
     </div>
   )
 }
