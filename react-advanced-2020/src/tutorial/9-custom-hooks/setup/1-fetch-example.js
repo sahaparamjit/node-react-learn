@@ -19,10 +19,10 @@ const Product = ({ products }) => {
     <>
       {products.map((pr) => {
         return (
-          <div className='item' key={pr.id}>
+          <article className='product' key={pr.id}>
             <h3>{pr.fields.name}</h3>
-            <h3>{pr.fields.price}</h3>
-          </div>
+            <h3>${pr.fields.price}</h3>
+          </article>
         )
       })}
     </>
